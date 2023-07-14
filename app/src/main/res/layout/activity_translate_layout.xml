@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TranslateLayoutActivity"
+    android:orientation="vertical"
+    android:background="@color/background"
+    >
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/sourceLangBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/language_custom_btn"
+        android:paddingHorizontal="20dp"
+        android:paddingBottom="5dp"
+        android:text="scoure lang"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:ignore="TextSizeCheck" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <EditText
+            android:id="@+id/sourceLangTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/text_input_source"
+            android:hint="텍스트를 입력하세요"
+            android:padding="30dp"
+            android:inputType="text"
+            android:autofillHints = "no"
+            android:gravity="top"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/translateBtn"
+            android:layout_width="70dp"
+            android:layout_height="45dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/translate_custom_btn"
+            android:paddingHorizontal="10dp"
+            tools:ignore="TouchTargetSizeCheck"
+            android:contentDescription="translate btn"/>
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/targetLangBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/language_custom_btn"
+        android:paddingHorizontal="20dp"
+        android:paddingBottom="5dp"
+        android:text="target lang"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:ignore="TextSizeCheck" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/targetLangTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="20dp"
+            android:background="@drawable/text_input_source"
+            android:padding="30dp"
+            android:textSize="20sp"/>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
