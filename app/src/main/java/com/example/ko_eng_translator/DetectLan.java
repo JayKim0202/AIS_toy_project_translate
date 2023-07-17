@@ -45,7 +45,6 @@ public class DetectLan extends AsyncTask<String, Void, String> {
         try {
             String text = URLEncoder.encode(source, "UTF-8");  /// 번역할 문장 Edittext  입력
 
-//            String apiURL = "https://openapi.naver.com/v1/papago/n2mt";
             String apiURL = "https://openapi.naver.com/v1/papago/detectLangs";
             URL url = new URL(apiURL);
             HttpURLConnection con = (HttpURLConnection)url.openConnection();
@@ -84,12 +83,6 @@ public class DetectLan extends AsyncTask<String, Void, String> {
             return result;
 
 
-            //        textView.setText(response.toString());
-/*            getresult = response.toString();
-
-            getresult = getresult.split("\"")[27];   //스플릿으로 번역된 결과값만 가져오기*/
-
-
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -100,7 +93,6 @@ public class DetectLan extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-        // 네트워크 요청 결과를 처리합니다.
         System.out.println("이건 onPostExcute : " + result);
     }
 

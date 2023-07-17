@@ -25,7 +25,7 @@ public class SourceLangDialog extends Dialog {
     private SourceLangDialogListener sourceLangeDialogListener;
 
     public interface SourceLangDialogListener{
-        void setSourceLang(String sourceLangCode, String sourceLangKo);
+        void setSourceLang(String sourceLangCode, String sourceLangKo, String spareLangCode, String spaterLangKo);
     }
 
     @Override
@@ -74,7 +74,14 @@ public class SourceLangDialog extends Dialog {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String sourceLang = (String) adapterView.getItemAtPosition(i);
-                sourceLangeDialogListener.setSourceLang((String)code.get(i), sourceLang);
+                try{
+                    sourceLangeDialogListener.setSourceLang((String)code.get(i), sourceLang, (String)code.get(i+1), (String)adapterView.getItemAtPosition(i+1));
+                    System.out.println("try-catch i+1: " + code.get(i+1) + " " + adapterView.getItemAtPosition(i+1) );
+                }catch (IndexOutOfBoundsException e) {
+                    sourceLangeDialogListener.setSourceLang((String)code.get(i), sourceLang, (String)code.get(i-1), (String)adapterView.getItemAtPosition(i-1));
+                    System.out.println("try-catch i-1: " + code.get(i-1) + " " + adapterView.getItemAtPosition(i-1) );
+                }
+
                 dismiss();
             }
         });

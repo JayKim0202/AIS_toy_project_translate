@@ -10,7 +10,9 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +38,7 @@ public class TranslateLayoutActivity extends AppCompatActivity{
         AppCompatButton targetLangBtn = findViewById(R.id.targetLangBtn);
         // 원본 언어 텍스트 설정
         EditText sourceLangTxt = findViewById(R.id.sourceLangTxt);
+
         // 타겟 언어 텍스트 설정
         TextView targetLangTxt = findViewById(R.id.targetLangTxt);
 
@@ -47,8 +50,14 @@ public class TranslateLayoutActivity extends AppCompatActivity{
             public void onClick(View view) {
                 SourceLangDialog sourceLangDialog = new SourceLangDialog(TranslateLayoutActivity.this, new SourceLangDialog.SourceLangDialogListener() {
                     @Override
-                    public void setSourceLang(String sourceLangCode, String sourceLangKo) {
+                    public void setSourceLang(String sourceLangCode, String sourceLangKo, String spareLangCode, String spareLangKo) {
+
                         if (sourceLangCode.equals(targetLanguageCode)){
+                            if (sourceLanguageCode.equals("detect")){
+                                sourceLanguageCode = spareLangCode;
+                                sourceLangBtn.setText(spareLangKo);
+                            }
+
                             String tmp = sourceLanguageCode;
                             sourceLanguageCode = targetLanguageCode;
                             targetLanguageCode = tmp;
@@ -64,12 +73,16 @@ public class TranslateLayoutActivity extends AppCompatActivity{
                             sourceLangBtn.setText(sourceLangKo);
                             sourceLanguageCode = sourceLangCode;
                         }
+                        System.out.println("source lang Code: " + sourceLanguageCode);
+                        System.out.println("target lang Code: " + targetLanguageCode);
                     }
                 });
                 sourceLangDialog.show();
 
                 sourceLangDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 sourceLangDialog.setCanceledOnTouchOutside(true);
+
+
             }
         });
 
