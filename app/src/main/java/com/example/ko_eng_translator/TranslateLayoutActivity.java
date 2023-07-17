@@ -28,6 +28,8 @@ public class TranslateLayoutActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.horizon_enter, R.anim.none);
+
         setContentView(R.layout.activity_translate_layout);
 
         AppCompatButton sourceLangBtn = findViewById(R.id.sourceLangBtn);
@@ -38,7 +40,6 @@ public class TranslateLayoutActivity extends AppCompatActivity{
         TextView targetLangTxt = findViewById(R.id.targetLangTxt);
 
         // 원본 언어 설정
-
         sourceLangBtn.setText("언어 감지");
 
         sourceLangBtn.setOnClickListener(new View.OnClickListener() {
