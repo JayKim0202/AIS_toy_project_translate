@@ -70,7 +70,9 @@ public class TargetLangDialog extends Dialog {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String targetLang = (String) adapterView.getItemAtPosition(i);
+
                 targetLangeDialogListener.setTargetLang((String)code.get(i), targetLang);
+
                 dismiss();
             }
         });

@@ -1,23 +1,21 @@
 package com.example.ko_eng_translator;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-
-import android.app.Dialog;
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
+
 import java.util.concurrent.ExecutionException;
 
 public class TranslateLayoutActivity extends AppCompatActivity{
@@ -33,6 +31,17 @@ public class TranslateLayoutActivity extends AppCompatActivity{
         overridePendingTransition(R.anim.horizon_enter, R.anim.none);
 
         setContentView(R.layout.activity_translate_layout);
+
+        LinearLayout tutorialLayout = findViewById(R.id.tutorialLayout);
+
+        tutorialLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tutorialLayout.setVisibility(View.GONE);
+            }
+        });
+
+
 
         AppCompatButton sourceLangBtn = findViewById(R.id.sourceLangBtn);
         AppCompatButton targetLangBtn = findViewById(R.id.targetLangBtn);
@@ -81,8 +90,6 @@ public class TranslateLayoutActivity extends AppCompatActivity{
 
                 sourceLangDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 sourceLangDialog.setCanceledOnTouchOutside(true);
-
-
             }
         });
 
@@ -97,6 +104,7 @@ public class TranslateLayoutActivity extends AppCompatActivity{
                     @Override
                     public void setTargetLang(String targetLangCode, String targetLangKo) {
                         if (targetLangCode.equals(sourceLanguageCode)){
+
                             String tmp = sourceLanguageCode;
                             sourceLanguageCode = targetLanguageCode;
                             targetLanguageCode = tmp;
@@ -112,6 +120,8 @@ public class TranslateLayoutActivity extends AppCompatActivity{
                             targetLangBtn.setText(targetLangKo);
                             targetLanguageCode = targetLangCode;
                         }
+                        System.out.println("source lang Code: " + sourceLanguageCode);
+                        System.out.println("target lang Code: " + targetLanguageCode);
                     }
                 });
 
@@ -130,8 +140,6 @@ public class TranslateLayoutActivity extends AppCompatActivity{
                 targetLangTxt.setText(null);
             }
         });
-
-
 
 
         // 언어 감지 및 번역
@@ -203,12 +211,12 @@ public class TranslateLayoutActivity extends AppCompatActivity{
                         default:
                             sourceLangBtn.setText("언어 감지");
                             sourceLanguageCode = "detect";
-                            Toast.makeText(TranslateLayoutActivity.this, "언어를 감지할 수 없습니다. 새로운 문장을 입력해주세요!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(TranslateLayoutActivity.this, "언어를 감지할 수 없습니다. 새로운 문장을 입력해 주세요!", Toast.LENGTH_SHORT).show();
                             return;
                     }
                 }
 
-                // 소스와 타겟이 같은 경우
+                // 언어 감지 후 소스와 타겟이 같은 경우
                 if (sourceLanguageCode.equals(targetLanguageCode)){
                     if (targetLanguageCode.equals("ko")){
                         targetLanguageCode = "en";
@@ -231,9 +239,11 @@ public class TranslateLayoutActivity extends AppCompatActivity{
                 System.out.println("번역된 문장: " + targetText);
                 targetLangTxt.setText(targetText);
 
+
+/*
                 if (targetText == null){
                     Toast.makeText(TranslateLayoutActivity.this, "지원하지 않는 target 언어 입니다.", Toast.LENGTH_SHORT).show();
-                }
+                }*/
             }
         });
     }

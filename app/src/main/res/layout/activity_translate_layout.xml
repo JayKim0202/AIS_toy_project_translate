@@ -8,96 +8,257 @@
     android:orientation="vertical"
     android:background="@color/background"
     >
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/sourceLangBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/language_custom_btn"
-        android:paddingHorizontal="20dp"
-        android:paddingBottom="5dp"
-        android:text="scoure lang"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        tools:ignore="TextSizeCheck" />
-
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_weight="1">
+        android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/sourceLangTxt"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/text_input_source"
-            android:hint="텍스트를 입력하세요"
-            android:padding="30dp"
-            android:inputType="textMultiLine"
-            android:autofillHints = "no"
-            android:gravity="top"
-            android:textSize="20sp"
-            android:maxLength="5000"
-            />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/sourceLangBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/language_custom_btn"
+                android:paddingHorizontal="20dp"
+                android:paddingBottom="5dp"
+                android:text="scoure lang"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="TextSizeCheck" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/translateBtn"
-            android:layout_width="70dp"
-            android:layout_height="45dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/translate_custom_btn"
-            android:paddingHorizontal="10dp"
-            tools:ignore="TouchTargetSizeCheck"
-            android:contentDescription="translate btn"/>
+                <EditText
+                    android:id="@+id/sourceLangTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/text_input_source"
+                    android:hint="텍스트를 입력하세요"
+                    android:padding="30dp"
+                    android:inputType="textMultiLine"
+                    android:autofillHints = "no"
+                    android:gravity="top"
+                    android:textSize="20sp"
+                    android:maxLength="5000"
+                    />
 
-    </LinearLayout>
+            </LinearLayout>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/targetLangBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/language_custom_btn"
-        android:paddingHorizontal="20dp"
-        android:paddingBottom="5dp"
-        android:text="target lang"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        tools:ignore="TextSizeCheck" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_weight="1">
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/translateBtn"
+                    android:layout_width="70dp"
+                    android:layout_height="45dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/translate_custom_btn"
+                    android:paddingHorizontal="10dp"
+                    tools:ignore="TouchTargetSizeCheck"
+                    android:contentDescription="translate btn"/>
 
-        <TextView
-            android:id="@+id/targetLangTxt"
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/targetLangBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/language_custom_btn"
+                android:paddingHorizontal="20dp"
+                android:paddingBottom="5dp"
+                android:text="target lang"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="TextSizeCheck" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/targetLangTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="20dp"
+                    android:background="@drawable/text_input_source"
+                    android:padding="30dp"
+                    android:textSize="20sp"
+                    android:maxLength="5000"/>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginVertical="20dp"
-            android:background="@drawable/text_input_source"
-            android:padding="30dp"
-            android:textSize="20sp"
-            android:maxLength="5000"/>
+            android:layout_height="match_parent"
+            android:background="#AA000000"
+            android:id="@+id/tutorialLayout"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="165dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/white_stroke_box"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginStart="30dp"
+                    />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/right_to_left_arrow"
+                    android:layout_marginTop="55dp"
+                    android:layout_marginLeft="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="원본 언어 선택 버튼"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    android:layout_marginTop="55dp"
+                    android:layout_marginLeft="10dp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="260dp"
+                    android:background="@drawable/white_stroke_box"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:textAlignment="center"
+                    android:text="번역하고 싶은 텍스트 입력"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:gravity="center"
+                    />
 
 
-    </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/white_stroke_box"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="140dp"
+                    />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/right_to_left_arrow"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="번역 버튼"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="10dp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="165dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/white_stroke_box"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="30dp"
+                    />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/right_to_left_arrow"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="타겟 언어 선택 버튼"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="10dp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="260dp"
+                    android:background="@drawable/white_stroke_box"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:textAlignment="center"
+                    android:text="번역된 텍스트"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:gravity="center"
+                    />
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+
 
 
 

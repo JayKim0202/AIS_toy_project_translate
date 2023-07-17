@@ -25,7 +25,7 @@ public class SourceLangDialog extends Dialog {
     private SourceLangDialogListener sourceLangeDialogListener;
 
     public interface SourceLangDialogListener{
-        void setSourceLang(String sourceLangCode, String sourceLangKo, String spareLangCode, String spaterLangKo);
+        void setSourceLang(String sourceLangCode, String sourceLangKo, String spareLangCode, String spareLangKo);
     }
 
     @Override
