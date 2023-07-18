@@ -34,6 +34,7 @@ public class SourceLangDialog extends Dialog {
         setContentView(R.layout.source_lang_dialog);
 
         ListView scourceLangList = (ListView)findViewById(R.id.sourceLangList);
+
         ArrayList<String> items = new ArrayList<>();
         items.add("언어 감지");
         items.add("한국어");
@@ -69,7 +70,6 @@ public class SourceLangDialog extends Dialog {
 
         ArrayAdapter<String> adpater = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, items);
         scourceLangList.setAdapter(adpater);
-
         scourceLangList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
