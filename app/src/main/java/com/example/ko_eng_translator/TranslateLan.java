@@ -1,24 +1,8 @@
-// 이거 수정 해야함!!!! 언어 감지랑 코드 똑같음
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 package com.example.ko_eng_translator;
 
 import android.os.AsyncTask;
 import android.os.Build;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 
@@ -93,14 +77,26 @@ public class TranslateLan extends AsyncTask<String, Void, String> {
             // {"langCode":"en"}
 
             String result = response.toString();
+
+            String errorCode = result.split("\"")[1];
+            if (!errorCode.equals("message")){
+                errorCode = result.split("\"")[3];
+                return errorCode;
+            }
+
             result = result.split("\"")[15];
-            System.out.println(result);
+            System.out.println("result(before add '.' :" + result);
 
-
-
-            return result;
-
-
+            if (text.endsWith(".")){
+                if (!result.endsWith(".")){
+                    return result + ".";
+                }
+            }else{
+                if (result.endsWith(".")){
+                    result = result.substring(0, result.length() - 1);
+                }
+            }
+            return  result;
         } catch (Exception e) {
             System.out.println(e);
         }

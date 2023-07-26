@@ -10,6 +10,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -235,9 +236,57 @@ public class TranslateLayoutActivity extends AppCompatActivity{
                 } catch (ExecutionException | InterruptedException e) {
                     throw new RuntimeException(e);
                 }
-                // 쓰레드 끝 난 후에 값 가져오기
-                System.out.println("번역된 문장: " + targetText);
-                targetLangTxt.setText(targetText);
+                // 에러 예외 처리
+                switch (targetText){
+                    case "N2MT01":
+                        // 이 예외처리는 동작하지 않습니다.
+                        Toast.makeText(TranslateLayoutActivity.this, "원본 언어가 제대로 설정되어 있는지 확인해 주세요!", Toast.LENGTH_SHORT).show();
+                        targetLangTxt.setText("");
+                        break;
+                    case "N2MT02":
+                        // 이 예외처리는 동작하지 않습니다.
+                        Toast.makeText(TranslateLayoutActivity.this, "아쉽지만 아직 지원하지 않는 원본 언어입니다. 다른 언어를 선택해 주세요!", Toast.LENGTH_SHORT).show();
+                        targetLangTxt.setText("");
+                        break;
+                    case "N2MT03":
+                        // 이 예외처리는 동작하지 않습니다.
+                        Toast.makeText(TranslateLayoutActivity.this, "목적 언어가 제대로 설정되어 있는지 확인해 주세요!", Toast.LENGTH_SHORT).show();
+                        targetLangTxt.setText("");
+                        break;
+                    case "N2MT04":
+                        // 이 예외처리는 동작하지 않습니다.
+                        Toast.makeText(TranslateLayoutActivity.this, "아쉽지만 아직 지원하지 않는 목적 언어입니다. 다른 언어를 선택해 주세요!", Toast.LENGTH_SHORT).show();
+                        targetLangTxt.setText("");
+                        break;
+                    case "N2MT05":
+                        // 이 예외처리는 동작하지 않습니다.
+                        Toast.makeText(TranslateLayoutActivity.this, "원본 언어와 목적 언어가 동일합니다! 다른 언어를 선택해 주세요!", Toast.LENGTH_SHORT).show();
+                        targetLangTxt.setText("");
+                        break;
+                    case "N2MT06":
+                        Toast.makeText(TranslateLayoutActivity.this, (String)sourceLangBtn.getText() + " -> " + (String)targetLangBtn.getText() + " 번역을 지원하지 않습니다. 다른 언어를 선택해 주세요!", Toast.LENGTH_SHORT).show();
+                        targetLangTxt.setText("");
+                        break;
+                    case "N2MT07":
+                        // 이 예외처리는 동작하지 않습니다.
+                        Toast.makeText(TranslateLayoutActivity.this, "번역할 텍스트를 입력해주세요!", Toast.LENGTH_SHORT).show();
+                        targetLangTxt.setText("");
+                        break;
+                    case "N2MT08":
+                        // 이 예외처리는 동작하지 않습니다.
+                        Toast.makeText(TranslateLayoutActivity.this, "번역할 텍스트의 글자 수가 너무 많아요!", Toast.LENGTH_SHORT).show();
+                        targetLangTxt.setText("");
+                        break;
+                    case "N2MT99":
+                        Toast.makeText(TranslateLayoutActivity.this, "서버에서 값을 불러오지 못했습니다! 다시 실행해주세요.", Toast.LENGTH_SHORT).show();
+                        targetLangTxt.setText("");
+                        break;
+                    default:
+                        System.out.println("번역된 문장: " + targetText);
+                        targetLangTxt.setText(targetText);
+                        break;
+                }
+
 
 
 /*
